@@ -177,7 +177,7 @@ function updateErrorDisplay(strength) {
     }
 }
 
-
+//back button working
 for (let i = 0; i < backBtn.length; i++) { 
     nextBtn[i].addEventListener('click', function(){
         formPages.style.transform = `translateX(-${i == 0 ? '33.33%' : i == 1 ? '66.66%' : ''})`;
