@@ -178,14 +178,15 @@ function updateErrorDisplay(strength) {
 }
 
 //back button working
-for (let i = 0; i < backBtn.length; i++) { 
-    nextBtn[i].addEventListener('click', function(){
-        formPages.style.transform = `translateX(-${i == 0 ? '33.33%' : i == 1 ? '66.66%' : ''})`;
-        i == 0 ? steps[0].classList.add('active') : '';
-        i == 1 ? steps[1].classList.add('active') : '';
+
+
+for (let i = 0; i < nextBtn.length; i++) {
+    nextBtn[i].addEventListener("click", function () {
+        // Move to next step
+        moveNext(i);
     });
 
-    backBtn[i].addEventListener('click', function(){
+    backBtn[i].addEventListener("click", function () {
         let currentPageIndex = Array.from(steps).findIndex(step => step.classList.contains('active'));
         let prevPageIndex = currentPageIndex - 1;
         formPages.style.transform = `translateX(-${prevPageIndex * 33.33}%)`;
@@ -193,5 +194,3 @@ for (let i = 0; i < backBtn.length; i++) {
         steps[prevPageIndex].classList.add('active');
     });
 }
-
-
