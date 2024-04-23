@@ -176,3 +176,20 @@ function updateErrorDisplay(strength) {
         errorPass.style.display = strength === 3 ? "none" : "block";
     }
 }
+
+
+for (let i = 0; i < backBtn.length; i++) { 
+    nextBtn[i].addEventListener('click', function(){
+        formPages.style.transform = `translateX(-${i == 0 ? '33.33%' : i == 1 ? '66.66%' : ''})`;
+        i == 0 ? steps[0].classList.add('active') : '';
+        i == 1 ? steps[1].classList.add('active') : '';
+    });
+
+    backBtn[i].addEventListener('click', function(){
+        let currentPageIndex = Array.from(steps).findIndex(step => step.classList.contains('active'));
+        let prevPageIndex = currentPageIndex - 1;
+        formPages.style.transform = `translateX(-${prevPageIndex * 33.33}%)`;
+        steps[currentPageIndex].classList.remove('active');
+        steps[prevPageIndex].classList.add('active');
+    });
+}
