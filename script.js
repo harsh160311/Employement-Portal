@@ -193,3 +193,5 @@ for (let i = 0; i < backBtn.length; i++) {
         steps[prevPageIndex].classList.add('active');
     });
 }
+
+
